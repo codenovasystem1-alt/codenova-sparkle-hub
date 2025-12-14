@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { GOOGLE_FORM_URL } from "@/lib/constants";
 
 const ContactSection = () => {
   return (
@@ -48,7 +49,11 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="lg">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => window.open(GOOGLE_FORM_URL, '_blank')}
+              >
                 Start Your Project
                 <ArrowRight className="w-5 h-5" />
               </Button>

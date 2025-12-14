@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { GOOGLE_FORM_URL } from "@/lib/constants";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="default">
+            <Button 
+              variant="hero" 
+              size="default"
+              onClick={() => window.open(GOOGLE_FORM_URL, '_blank')}
+            >
               Get Started
             </Button>
           </div>
@@ -70,7 +75,12 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="hero" size="default" className="mt-2">
+              <Button 
+                variant="hero" 
+                size="default" 
+                className="mt-2"
+                onClick={() => window.open(GOOGLE_FORM_URL, '_blank')}
+              >
                 Get Started
               </Button>
             </div>

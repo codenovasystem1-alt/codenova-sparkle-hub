@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { GOOGLE_FORM_URL } from "@/lib/constants";
 
 const HeroSection = () => {
   return (
@@ -45,7 +46,11 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-300">
-            <Button variant="hero" size="xl">
+            <Button 
+              variant="hero" 
+              size="xl"
+              onClick={() => window.open(GOOGLE_FORM_URL, '_blank')}
+            >
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </Button>
