@@ -62,7 +62,52 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Option 1: Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click "New Project" and import your repository
+4. Vercel will auto-detect Vite settings
+5. Click "Deploy" - your site will be live in minutes!
+
+### Option 2: Deploy to Netlify
+
+1. Push your code to GitHub
+2. Go to [netlify.com](https://netlify.com) and sign in with GitHub
+3. Click "Add new site" > "Import an existing project"
+4. Select your repository
+5. Build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy site"
+
+### Option 3: Deploy to Traditional Hosting (cPanel, etc.)
+
+1. Build the project locally:
+   ```sh
+   npm run build
+   ```
+2. Upload the contents of the `dist` folder to your hosting's `public_html` or `www` directory
+3. Configure your server to redirect all routes to `index.html` (for React Router to work)
+4. For Apache, add this to `.htaccess`:
+   ```apache
+   <IfModule mod_rewrite.c>
+     RewriteEngine On
+     RewriteBase /
+     RewriteRule ^index\.html$ - [L]
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteCond %{REQUEST_FILENAME} !-d
+     RewriteRule . /index.html [L]
+   </IfModule>
+   ```
+
+### Build for Production
+
+```sh
+npm run build
+```
+
+The built files will be in the `dist` directory.
 
 ## Can I connect a custom domain to my Lovable project?
 
