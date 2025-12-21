@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: process.env.GITHUB_PAGES ? '/codenova-sparkle-hub/' : '/',
   server: {
     host: "::",
     port: 3000,
